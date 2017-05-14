@@ -18,10 +18,7 @@ Enjoy Ballerina Microservices
 
 Teatro Municipal from Rio de Janeiro in Brazil, is the place where many ballet shows already happened, it is a historic place for such art in Brazil.
 
-
-![Teatro Muncipal](http://jornalggn.com.br/sites/default/files/u16-2016/teatro-municipal-rj.jpg)
-
-Credits: http://jornalggn.com.br/sites/default/files/u16-2016/teatro-municipal-rj.jpg
+Image/Credits from Teatro Municipal: http://jornalggn.com.br/sites/default/files/u16-2016/teatro-municipal-rj.jpg
 
 
 
