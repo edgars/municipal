@@ -14,6 +14,10 @@ Enjoy Ballerina Microservices
 * What is under beta of the beta of the beta? That is the actual stage, made it into a flight back home :)
 * I decided to use SparkJava cause it is the less boring dev env for me actually, and besides it is very well integrated with Apache Velocity :)
 
+### About the name
 
+Teatro Municipal from Rio de Janeiro in Brazil, is the place where many ballet shows already happened, it is a historic place for such art in Brazil.
+
+![Municipal](http://jornalggn.com.br/sites/default/files/u16-2016/teatro-municipal-rj.jpg)
 
 
