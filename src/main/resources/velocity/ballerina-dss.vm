@@ -1,0 +1,49 @@
+import ballerina.data.sql;
+import ballerina.lang.messages;
+import ballerina.lang.datatables;
+import ballerina.lang.jsons;
+import ballerina.lang.exceptions;
+import ballerina.lang.strings;
+import ballerina.net.http;
+
+import ballerina.lang.system;
+
+@http:BasePath{value:"/$table"}
+service ${table}Service {
+
+string dbURL = "$url";
+string username = "$user";
+string password = "$password";
+map propertiesMap = {"jdbcUrl":dbURL, "username":username, "password":password};
+sql:ClientConnector lcDBConnector = create sql:ClientConnector(propertiesMap);
+
+}
+
+@http:GET{}
+resource select(message m) {
+system:println("GET simple");
+sql:Parameter[] params = [];
+try {
+datatable dt = sql:ClientConnector.select(lcDBConnector, "select * from $table", params);
+json payload = datatables:toJson(dt);
+message response = {};
+messages:setJsonPayload(response, payload);
+reply response;
+
+}
+catch (exception e) {
+message response = {};
+messages:setJsonPayload(response, responseException("select", e));
+reply response;
+
+}
+
+}
+
+}
+function responseException(string resourceName, exception e)(json ) {
+string errorMessage = strings:trim(exceptions:getMessage(e));
+json payload = `{${resourceName}:${errorMessage}}`;
+return payload;
+
+}

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Municial - beta 0.1</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+
+@import url('https://fonts.googleapis.com/css?family=Cairo|Play');
+
+.logo {
+	padding: 10px 10px 0 10px;
+}
+
+.name {
+	font-size: 14px;
+	color: black;
+	padding-top: 15px;
+}
+
+body {
+	font-family: 'Cairo', 'Play', 'Open Sans', sans-serif;
+}
+
+.material-button-anim {
+  position: relative;
+  padding: 127px 15px 27px;
+  text-align: center;
+  max-width: 320px;
+  margin: 0 auto 20px;
+}
+
+.material-button {
+    position: relative;
+    top: 0;
+    z-index: 1;
+    width: 70px;
+    height: 70px;
+    font-size: 1.5em;
+    color: #fff;
+    background: #2C98DE;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0,0,0,.275);
+    outline: none;
+}
+.material-button-toggle {
+    z-index: 3;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+}
+.material-button-toggle span {
+    -webkit-transform: none;
+    transform:         none;
+    -webkit-transition: -webkit-transform .175s cubic-bazier(.175,.67,.83,.67);
+    transition:         transform .175s cubic-bazier(.175,.67,.83,.67);
+}
+.material-button-toggle.open {
+    -webkit-transform: scale(1.3,1.3);
+    transform:         scale(1.3,1.3);
+    -webkit-animation: toggleBtnAnim .175s;
+    animation:         toggleBtnAnim .175s;
+}
+.material-button-toggle.open span {
+    -webkit-transform: rotate(45deg);
+    transform:         rotate(45deg);
+    -webkit-transition: -webkit-transform .175s cubic-bazier(.175,.67,.83,.67);
+    transition:         transform .175s cubic-bazier(.175,.67,.83,.67);
+}
+
+#options {
+  height: 70px;
+}
+.option {
+    position: relative;
+}
+.option .option1,
+.option .option2,
+.option .option3 {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -webkit-transition: all .175s;
+    transition:         all .175s;
+}
+.option .option1 {
+    -webkit-transform: translate3d(90px,90px,0) scale(.8,.8);
+    transform:         translate3d(90px,90px,0) scale(.8,.8);
+}
+.option .option2 {
+    -webkit-transform: translate3d(0,90px,0) scale(.8,.8);
+    transform:         translate3d(0,90px,0) scale(.8,.8);
+}
+.option .option3 {
+    -webkit-transform: translate3d(-90px,90px,0) scale(.8,.8);
+    transform:         translate3d(-90px,90px,0) scale(.8,.8);
+}
+.option.scale-on .option1,
+.option.scale-on .option2,
+.option.scale-on .option3 {
+    filter: blur(0);
+    -webkit-filter: blur(0);
+    -webkit-transform: none;
+    transform:         none;
+    -webkit-transition: all .175s;
+    transition:         all .175s;
+}
+.option.scale-on .option2 {
+    -webkit-transform: translateY(-28px) translateZ(0);
+    transform:         translateY(-28px) translateZ(0);
+    -webkit-transition: all .175s;
+    transition:         all .175s;
+}
+
+@keyframes toggleBtnAnim {
+    0% {
+        -webkit-transform: scale(1,1);
+        transform:         scale(1,1);
+    }
+    25% {
+        -webkit-transform: scale(1.4,1.4);
+        transform:         scale(1.4,1.4);
+    }
+    75% {
+        -webkit-transform: scale(1.2,1.2);
+        transform:         scale(1.2,1.2);
+    }
+    100% {
+        -webkit-transform: scale(1.3,1.3);
+        transform:         scale(1.3,1.3);
+    }
+}
+@-webkit-keyframes toggleBtnAnim {
+    0% {
+        -webkit-transform: scale(1,1);
+        transform:         scale(1,1);
+    }
+    25% {
+        -webkit-transform: scale(1.4,1.4);
+        transform:         scale(1.4,1.4);
+    }
+    75% {
+        -webkit-transform: scale(1.2,1.2);
+        transform:         scale(1.2,1.2);
+    }
+    100% {
+        -webkit-transform: scale(1.3,1.3);
+        transform:         scale(1.3,1.3);
+    }
+}
+
+
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+
+
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+
+                <li>
+                    <a href="home"><i class="fa fa-database fa-fw"></i>Database app.Connection</a>
+                </li>
+                <li class="disabled">
+                    <a href="#"><i class="fa fa-list-alt fa-fw"></i> Select Objects</a>
+
+                </li>
+                <li class="disabled">
+                    <a href="#"><i class="fa fa-cog fa-fw"></i>Settings</a>
+                </li>
+                <li class="disabled">
+                    <a href="#"><i class="fa fa-magic fa-fw"></i>Generate</a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Municipal - Data Services powered by Ballerina</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+
+
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Database app.Connection and Settings
+                    </div>
+                    <div class="panel-body">
+
+
+                        <div class="row">
+
+                            <div class="col-lg-6">
+                                #if ($connected==false)
+                                <form role="form" action="connect" method="get" id="formConnect">
+
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="url">URL:</label>
+                                        <input type="text" class="form-control" id="url" name="url" required>
+                                    </div>
+
+
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user-secret"></i></span>
+                                        <input type="text" class="form-control" placeholder="user" name="user" required>
+                                    </div>
+
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                        <input type="password" class="form-control" placeholder="password"
+                                               name="password" required>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-default">Connect</button>
+
+                                </form>
+
+                                #else
+                                <h3>Connection Stablished !</h3>
+                                #end
+                            </div>
+
+
+                            <!-- /.col-lg-6 (nested) -->
+                            #if ($connected == true)
+                            <div class="col-lg-6">
+
+                                <h2>Settings</h2>
+                                <hr size="1">
+
+                                <p>
+                                    User: $user
+                                </p>
+                                <p>
+                                    Database Url: $url
+                                </p>
+
+                                <p>
+                                    Password: **************
+                                </p>
+
+
+                            </div>
+                            <!-- /.col-lg-6 (nested) -->
+                        </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <!-- /.panel-body -->
+
+                </div>
+                <!-- /.panel -->
+            </div>
+            #{else}
+
+            Not Connected!
+
+            #end
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        #if ($connected==true)
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Define the Tables
+            </div>
+            <div class="panel-body">
+
+                <div class="funkyradio">
+
+                    <form id="formTable" method="get" action="table">
+
+                        #foreach( $table in $tables )
+
+
+                        <div class="funkyradio-default">
+                            <input type="radio" name="selected-table" id="selected-table" value="$table"/>
+                            <label for="selected-table">&nbsp;$table</label>
+                        </div>
+                        #end
+                    </form>
+
+                    <link rel="stylesheet"
+                          href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4">
+                                <div class="material-button-anim">
+                                    <ul class="list-inline" id="options">
+                                        <li class="option">
+                                            <button class="material-button option1" type="button">
+                                                <span class="fa fa-info-circle" aria-hidden="true"></span>
+                                            </button>
+                                        </li>
+                                        <li class="option">
+                                            <button class="material-button option2" type="button"
+                                                    onclick="submitTable();">
+                                                <span class="fa fa-columns" aria-hidden="true"></span>
+                                            </button>
+                                        </li>
+                                        <li class="option">
+                                            <button class="material-button option3" type="button">
+                                                <span class="fa fa-pencil" aria-hidden="true"></span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                    <button class="material-button material-button-toggle" type="button">
+                                        <span class="fa fa-plus" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            #end
+            <!-- /#page-wrapper -->
+        </div>
+    </div>
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
+
+<script>
+
+$(document).ready(function () {
+    $('.material-button-toggle').on("click", function () {
+        $(this).toggleClass('open');
+        $('.option').toggleClass('scale-on');
+    });
+
+    $('#formConnect').validate({
+        rules: {
+            url: {
+                required: true
+            },
+            user: {
+                required: true
+            },
+            password: {
+                minlength: 3,
+                required: true
+            }
+        },
+        highlight: function (element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+        },
+        success: function (element) {
+            element.text('OK!').addClass('valid')
+                .closest('.control-group').removeClass('error').addClass('success');
+        }
+    });
+});
+
+function submitConnect(){
+var form = document.getElementById('formConnect');
+
+form.style.display = 'none';
+
+var processing = document.createElement('span');
+
+processing.appendChild(document.createTextNode('processing ...'));
+
+form.parentNode.insertBefore(processing, form);
+
+document.getElementById("formConnect").submit();
+
+    }
+
+
+function submitTable(){
+    var form = document.getElementById('formTable');
+
+form.style.display = 'none';
+
+var processing = document.createElement('span');
+
+processing.appendChild(document.createTextNode('processing ...'));
+
+form.parentNode.insertBefore(processing, form);
+
+document.getElementById("formTable").submit();
+}
+
+
+
+
+
+</script>
+
+
+</body>
+
+</html>
